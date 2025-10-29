@@ -1,0 +1,419 @@
+<?xml version="1.0" ?>
+<robot name="SurrogateModel">
+    <link name="link0">
+        <visual>
+          <geometry>
+            <mesh filename="package://mesh3/base.stl"/>
+          </geometry>
+          <material name="color0"/>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://mesh3/base.stl"/>
+          </geometry>
+          <material name="color0"/>
+        </collision>
+        <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <mass value="1"/>
+          <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+        </inertial>
+    </link>
+
+    <link name="link1">
+        <visual>
+          <geometry>
+            <mesh filename="package://mesh3/Rib.stl"/>
+          </geometry>
+          <material name="color1"/>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://mesh3/Rib.stl"/>
+          </geometry>
+          <material name="color1"/>
+        </collision>
+        <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <mass value="1"/>
+          <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+        </inertial>
+    </link>
+
+    <link name="intermediate_link0">
+        <visual>
+          <geometry>
+            <box size="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="color2"/>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="color2"/>
+        </collision>
+        <inertial>
+          <origin xyz="0 0 0.0" rpy="0 0 0"/>
+          <mass value="0.001"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>
+    </link>
+
+
+    <joint name="joint0" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+        <origin rpy="0 0 0" xyz="0 0 0.02"/>
+        <parent link="link0"/>
+        <child link="intermediate_link0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="87" lower="-0.2094" upper="0.2094" velocity="0.5"/>
+        <dynamics damping="0.5" friction="0.1"/>
+        <spring_stiffness value ="10"/>
+    </joint>
+
+    <joint name="joint1" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+        <origin rpy="0 0 0" xyz="0 0 0.015"/>
+        <parent link="intermediate_link0"/>
+        <child link="link1"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="87" lower="-0.40" upper="0.40" velocity="0.5"/>
+        <dynamics damping="0.5" friction="0.1"/>
+        <spring_stiffness value ="10"/>
+    </joint>
+
+
+    <link name="link2">
+      <visual>
+        <geometry>
+          <mesh filename="package://mesh3/Rib.stl"/>
+        </geometry>
+        <material name="color1"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://mesh3/Rib.stl"/>
+        </geometry>
+        <material name="color1"/>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+      </inertial>
+  </link>
+
+  <joint name="joint2" type="prismatic">
+    
+    <origin rpy="0 0 0" xyz="0 0 0.005"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="0.00" upper="0.02" velocity="0.5"/>
+    <dynamics damping="0.5" friction="0.1"/>
+    <spring_stiffness value ="10"/>
+</joint>
+
+<link name="intermediate_link1">
+  <visual>
+    <geometry>
+      <box size="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="color2"/>
+  </visual>
+  <collision>
+    <geometry>
+      <box size="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="color2"/>
+  </collision>
+  <inertial>
+    <origin xyz="0 0 0.0" rpy="0 0 0"/>
+    <mass value="0.001"/>
+    <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+  </inertial>
+</link>
+
+<link name="link3">
+  <visual>
+    <geometry>
+      <mesh filename="package://mesh3/Rib.stl"/>
+    </geometry>
+    <material name="color1"/>
+  </visual>
+  <collision>
+    <geometry>
+      <mesh filename="package://mesh3/Rib.stl"/>
+    </geometry>
+    <material name="color1"/>
+  </collision>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+  </inertial>
+</link>
+
+<joint name="joint3" type="revolute">
+  <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+  <origin rpy="0 0 0" xyz="0 0 0.02"/>
+  <parent link="link2"/>
+  <child link="intermediate_link1"/>
+  <axis xyz="1 0 0"/>
+  <limit effort="87" lower="-0.2094" upper="0.2094" velocity="0.5"/>
+  <dynamics damping="0.5" friction="0.1"/>
+  <spring_stiffness value ="10"/>
+</joint>
+
+<joint name="joint4" type="revolute">
+  <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+  <origin rpy="0 0 0" xyz="0 0 0.015"/>
+  <parent link="intermediate_link1"/>
+  <child link="link3"/>
+  <axis xyz="0 1 0"/>
+  <limit effort="87" lower="-0.40" upper="0.40" velocity="0.5"/>
+  <dynamics damping="0.5" friction="0.1"/>
+  <spring_stiffness value ="10"/>
+</joint>
+
+<link name="link4">
+  <visual>
+    <geometry>
+      <mesh filename="package://mesh3/Rib.stl"/>
+    </geometry>
+    <material name="color1"/>
+  </visual>
+  <collision>
+    <geometry>
+      <mesh filename="package://mesh3/Rib.stl"/>
+    </geometry>
+    <material name="color1"/>
+  </collision>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+  </inertial>
+</link>
+
+<joint name="joint5" type="prismatic">
+
+  <origin rpy="0 0 0" xyz="0 0 0.005"/>
+  <parent link="link3"/>
+  <child link="link4"/>
+  <axis xyz="0 0 1"/>
+  <limit effort="1000.0" lower="0.00" upper="0.02" velocity="0.5"/>
+  <dynamics damping="0.5" friction="0.1"/>
+  <spring_stiffness value ="10"/>
+</joint>
+
+<link name="intermediate_link2">
+<visual>
+<geometry>
+  <box size="0.001 0.001 0.001"/>
+</geometry>
+<material name="color2"/>
+</visual>
+<collision>
+<geometry>
+  <box size="0.001 0.001 0.001"/>
+</geometry>
+<material name="color2"/>
+</collision>
+<inertial>
+<origin xyz="0 0 0.0" rpy="0 0 0"/>
+<mass value="0.001"/>
+<inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+</inertial>
+</link>
+
+<link name="link5">
+<visual>
+<geometry>
+  <mesh filename="package://mesh3/Rib.stl"/>
+</geometry>
+<material name="color1"/>
+</visual>
+<collision>
+<geometry>
+  <mesh filename="package://mesh3/Rib.stl"/>
+</geometry>
+<material name="color1"/>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="1"/>
+<inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+</inertial>
+</link>
+
+<joint name="joint6" type="revolute">
+<safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+<origin rpy="0 0 0" xyz="0 0 0.02"/>
+<parent link="link4"/>
+<child link="intermediate_link2"/>
+<axis xyz="1 0 0"/>
+<limit effort="87" lower="-0.2094" upper="0.2094" velocity="0.5"/>
+<dynamics damping="0.5" friction="0.1"/>
+<spring_stiffness value ="10"/>
+</joint>
+
+<joint name="joint7" type="revolute">
+<safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+<origin rpy="0 0 0" xyz="0 0 0.015"/>
+<parent link="intermediate_link2"/>
+<child link="link5"/>
+<axis xyz="0 1 0"/>
+<limit effort="87" lower="-0.4" upper="0.4" velocity="0.5"/>
+<dynamics damping="0.5" friction="0.1"/>
+<spring_stiffness value ="10"/>
+</joint>
+
+
+
+<link name="link6">
+  <visual>
+    <geometry>
+      <mesh filename="package://mesh3/Rib.stl"/>
+    </geometry>
+    <material name="color1"/>
+  </visual>
+  <collision>
+    <geometry>
+      <mesh filename="package://mesh3/Rib.stl"/>
+    </geometry>
+    <material name="color1"/>
+  </collision>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+  </inertial>
+</link>
+
+<joint name="joint8" type="prismatic">
+
+<origin rpy="0 0 0" xyz="0 0 0.005"/>
+<parent link="link5"/>
+<child link="link6"/>
+<axis xyz="0 0 1"/>
+<limit effort="1000.0" lower="0.00" upper="0.02" velocity="0.5"/>
+<dynamics damping="0.5" friction="0.1"/>
+<spring_stiffness value ="10"/>
+</joint>
+
+<link name="intermediate_link3">
+<visual>
+<geometry>
+  <box size="0.001 0.001 0.001"/>
+</geometry>
+<material name="color2"/>
+</visual>
+<collision>
+<geometry>
+  <box size="0.001 0.001 0.001"/>
+</geometry>
+<material name="color2"/>
+</collision>
+<inertial>
+<origin xyz="0 0 0.0" rpy="0 0 0"/>
+<mass value="0.001"/>
+<inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+</inertial>
+</link>
+
+<link name="link7">
+<visual>
+<geometry>
+  <mesh filename="package://mesh3/base.stl"/>
+</geometry>
+<material name="color0"/>
+</visual>
+<collision>
+<geometry>
+  <mesh filename="package://mesh3/base.stl"/>
+</geometry>
+<material name="color0"/>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="1"/>
+<inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+</inertial>
+</link>
+
+<joint name="joint9" type="revolute">
+<safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+<origin rpy="0 0 0" xyz="0 0 0.02"/>
+<parent link="link6"/>
+<child link="intermediate_link3"/>
+<axis xyz="1 0 0"/>
+<limit effort="87" lower="-0.2094" upper="0.2094" velocity="0.5"/>
+<dynamics damping="0.5" friction="0.1"/>
+<spring_stiffness value ="10"/>
+</joint>
+
+<joint name="joint10" type="revolute">
+<safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.5709" soft_upper_limit="1.5709"/>
+<origin rpy="0 0 0" xyz="0 0 0.015"/>
+<parent link="intermediate_link3"/>
+<child link="link7"/>
+<axis xyz="0 1 0"/>
+<limit effort="87" lower="-0.4" upper="0.4" velocity="0.5"/>
+<dynamics damping="0.5" friction="0.1"/>
+<spring_stiffness value ="10"/>
+</joint>
+
+<link name="link8">
+<visual>
+<geometry>
+  <mesh filename="package://mesh3/IntegratedToolTip.stl"/>
+</geometry>
+<material name="color3"/>
+</visual>
+<collision>
+<geometry>
+  <mesh filename="package://mesh3/IntegratedToolTip.stl"/>
+</geometry>
+<material name="color3"/>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0.1"/>
+<inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
+</inertial>
+</link>
+
+<joint name="joint11" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.005"/>
+        <parent link="link7"/>
+        <child link="link8"/>
+        <axis xyz="0 0 1"/>
+</joint>
+
+
+
+
+    <material name="color0">
+      <color rgba="0.0  0.0 0.0 0.8"/>
+    </material>
+
+    <material name="color1">
+        <color rgba="1.0000    0.9373    0.8706 1.0"/>
+    </material>
+
+    
+
+    <material name="color2">
+        <color rgba=".8 .8 .8 1."/>
+    </material>
+
+    <material name="color3">
+        <color rgba="0.7098 0.6510 0.2588  1.0"/>
+    </material>
+
+    <material name="color4">
+      <color rgba="0.0863 0.3255 0.4314 1.0"/>
+  </material>
+</robot>
