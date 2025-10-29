@@ -1,3 +1,19 @@
+## 🎬 Demo Videos
+
+### SOFA Simulation Demo
+![SOFA Soft Robot Simulation](docs/SOFA_demo-1.gif)
+
+*Real-time SOFA simulation showing pneumatic actuation of the 3-cavity soft manipulator with dynamic pressure control and FEM deformation.*
+
+![SOFA Soft Robot Simulation](docs/SP_sync_fast.gif)
+
+*Real-time synchronization between the surrogate model and the real robot.*
+
+![SOFA Soft Robot Simulation](docs/Topic2_Demo1.gif)
+
+*Result Summary*
+
+
 ## 📂 Data Availability
 
 🤗 **Complete Dataset Available**: All CSV files and detailed descriptions are available on HuggingFace Datasets:  
@@ -63,12 +79,7 @@ This repository implements a complete sim-to-real framework for pressure-actuate
 - **Solver**: CGLinearSolver + GenericConstraintSolver for constraint-based dynamics
 - **Boundary Conditions**: Bottom surface fixed with RestShapeSpringsForceField
 
-## 🎬 Demo Videos
 
-### SOFA Simulation Demo
-![SOFA Soft Robot Simulation](docs/SOFA_demo-1.gif)
-
-*Real-time SOFA simulation showing pneumatic actuation of the 3-cavity soft manipulator with dynamic pressure control and FEM deformation.*
 
 ### PyBullet Integration
 - **Robot Model**: URDF-based articulated soft robot (`SurrogateModel.urdf`)
