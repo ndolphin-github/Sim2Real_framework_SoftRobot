@@ -57,6 +57,13 @@ This repository implements a complete sim-to-real framework for pressure-actuate
 - **Solver**: CGLinearSolver + GenericConstraintSolver for constraint-based dynamics
 - **Boundary Conditions**: Bottom surface fixed with RestShapeSpringsForceField
 
+## 🎬 Demo Videos
+
+### SOFA Simulation Demo
+![SOFA Soft Robot Simulation](docs/SOFA_demo-1.gif)
+
+*Real-time SOFA simulation showing pneumatic actuation of the 3-cavity soft manipulator with dynamic pressure control and FEM deformation.*
+
 ### PyBullet Integration
 - **Robot Model**: URDF-based articulated soft robot (`SurrogateModel.urdf`)
 - **Custom Control**: Joint position targets derived from pressure-angle mapping
@@ -101,23 +108,13 @@ python ROM_check.py
 - **Workspace Coverage**: Reachable volume comparison (SOFA vs PyBullet vs Hardware)
 - **Transfer Success**: Task completion rate for pick-and-place scenarios
 
-## 🎬 Demo Videos
 
-### SOFA Simulation Demo
-![SOFA Soft Robot Simulation](docs/SOFA_demo-1.gif)
 
-*Real-time SOFA simulation showing pneumatic actuation of the 3-cavity soft manipulator with dynamic pressure control and FEM deformation.*
-
-## ⚠️ Large Files Notice
-**Due to GitHub file size limitations, the following large files are excluded from this repository:**
-- `Dataset/*.csv` - All dataset files (8 files, ~500MB total)
-- `Code/ModelCalibration_SOFA/bin/*.dll` - SOFA binary files
-- `Code/PhysicsBasedSimulation_PyBullet/DynamicsLearning/Pybullet_dataset/*.csv` - PyBullet training data
 
 **To obtain the complete datasets**: Contact the authors or refer to the AIS journal paper for data availability.
 
 ## 📚 Dependencies
-- **SOFA**: SoftRobots plugin, MJED materials, ModelOrderReduction
+- **SOFA**: version 23.04, SoftRobots plugin, MJED materials, ModelOrderReduction
 - **Python**: PyTorch, PyBullet, NumPy, Pandas, Scikit-learn
 - **Hardware**: Pressure sensors, motion capture system, pneumatic actuators
 
@@ -140,13 +137,6 @@ The `Dataset/` folder contains structured data used for training surrogate model
 All files are in `.csv` format and can be opened with any standard spreadsheet or numerical computing tool. They are designed to support both analytical modeling and data-driven learning methods.
 
 
-
-
-
-
-### Results (short)
-
-Detailed quantitative results and ablation studies are reported in the AIS draft. In summary, calibrated simulation parameters and surrogate corrections reduced prediction error (position / orientation) and improved closed-loop transfer success compared to the uncalibrated baseline. See the paper for tables and plots.
 
 ### Citation
 
