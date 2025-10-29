@@ -9,7 +9,7 @@
 
 *Real-time synchronization between the surrogate model and the real robot.*
 
-![SOFA Soft Robot Simulation](docs/Topic2_Demo1.gif)
+![SOFA Soft Robot Simulation](docs/Topic2_Demo.gif)
 
 *Result Summary*
 
