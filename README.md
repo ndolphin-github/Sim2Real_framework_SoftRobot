@@ -1,3 +1,9 @@
+## 📂 Data Availability
+
+🤗 **Complete Dataset Available**: All CSV files and detailed descriptions are available on HuggingFace Datasets:  
+**[https://huggingface.co/datasets/Ndolphin/SoftManipulator_sim2real](https://huggingface.co/datasets/Ndolphin/SoftManipulator_sim2real)**
+
+The `Dataset/` folder contains structured data used for training surrogate models, evaluating pressure mappings, and validating simulation outputs. Below is a brief description of each file:
 
 # SoftRobot Sim2Real Framework
 
