@@ -70,7 +70,7 @@ This repository implements a complete sim-to-real framework for pressure-actuate
 | `RealPressure_vs_SOFAPressure.csv` | Hardware vs simulation pressure | Comparison | Calibration |
 | `SOFA_snapshot_data.csv` | FEM nodal displacements | Simulation | Model analysis |
 
-## 🔧 Technical Implementation Details
+## Technical Implementation Details
 
 ### SOFA Simulation Setup
 - **Mesh**: `ManipulatorWhole25.vtk` (tetrahedral FEM mesh)
@@ -93,7 +93,7 @@ This repository implements a complete sim-to-real framework for pressure-actuate
 3. **Training**: Adam optimizer, MSE + physics loss, early stopping
 4. **Deployment**: Saved models (.pth) with preprocessing scalers (.pkl)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Running SOFA Simulations
 ```python
@@ -119,7 +119,7 @@ cd Code/PhysicsBasedSimulation_PyBullet/RangeOfMotion/
 python ROM_check.py
 ```
 
-## 📊 Validation Metrics
+## Validation Metrics
 - **Position Accuracy**: Mean absolute error between sim and real TCP positions
 - **Pressure Tracking**: Correlation between commanded and actual cavity pressures  
 - **Workspace Coverage**: Reachable volume comparison (SOFA vs PyBullet vs Hardware)
@@ -128,7 +128,7 @@ python ROM_check.py
 
 
 
-**To obtain the complete datasets**: Contact the authors or refer to the AIS journal paper for data availability.
+** To obtain the complete datasets**: Contact the authors or refer to the AIS journal paper for data availability.
 
 ## Dependencies
 - **SOFA**: version 23.04, SoftRobots plugin, MJED materials, ModelOrderReduction
