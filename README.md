@@ -1,4 +1,4 @@
-## 🎬 Demo Videos
+## Demo Videos
 
 ### SOFA Simulation Demo
 ![SOFA Soft Robot Simulation](docs/SOFA_demo-1.gif)
@@ -14,7 +14,7 @@
 *Result Summary*
 
 
-## 📂 Data Availability
+## Data Availability
 
 🤗 **Complete Dataset Available**: All CSV files and detailed descriptions are available on HuggingFace Datasets:  
 **[https://huggingface.co/datasets/Ndolphin/SoftManipulator_sim2real](https://huggingface.co/datasets/Ndolphin/SoftManipulator_sim2real)**
@@ -25,13 +25,13 @@ The `Dataset/` folder contains structured data used for training surrogate model
 
 This repository implements a complete sim-to-real framework for pressure-actuated soft robots, combining high-fidelity SOFA finite element simulations with PyBullet physics modeling and data-driven surrogate models. The codebase accompanies our AIS journal submission demonstrating successful transfer from simulation to hardware.
 
-## 🎯 Research Contribution
+## Research Contribution
 
 **Problem**: Soft robots have complex, nonlinear dynamics that are difficult to model accurately, creating a significant sim-to-real gap that hinders effective control design and deployment.
 
 **Solution**: A three-stage pipeline that (1) calibrates FEM parameters using SOFA simulations, (2) learns surrogate models for fast prediction via PyBullet, and (3) validates controllers on real hardware with quantified transfer performance.
 
-## 📋 Key Components Implemented
+## Key Components Implemented
 
 ### 1. SOFA-based Model Calibration (`Code/ModelCalibration_SOFA/`)
 - **Dynamic Controller** (`DynamicController.py`): Automated pressure profile generation and data collection
@@ -130,13 +130,13 @@ python ROM_check.py
 
 **To obtain the complete datasets**: Contact the authors or refer to the AIS journal paper for data availability.
 
-## 📚 Dependencies
+## Dependencies
 - **SOFA**: version 23.04, SoftRobots plugin, MJED materials, ModelOrderReduction
 - **Python**: PyTorch, PyBullet, NumPy, Pandas, Scikit-learn
 - **Hardware**: Pressure sensors, motion capture system, pneumatic actuators
 
 
-## 📂 Data Availability
+## Data Availability
 
 The `Dataset/` folder contains structured data used for training surrogate models, evaluating pressure mappings, and validating simulation outputs. Below is a brief description of each file:
 
