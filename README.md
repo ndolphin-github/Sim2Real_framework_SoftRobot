@@ -1,8 +1,7 @@
 ## Demo Videos
 
 ### SOFA Simulation Demo
-![SOFA Soft Robot Simulation]
-<img src="docs/SOFA_demo-1.gif" alt="SOFA Soft Robot Simulation" width="400" height="300">
+<img src="docs/SOFA_demo-1.gif" alt="SOFA Soft Robot Simulation" width="400" height="400">
 *Real-time SOFA simulation showing pneumatic actuation of the 3-cavity soft manipulator with dynamic pressure control and FEM deformation.*
 
 ![SOFA Soft Robot Simulation](docs/SP_sync_fast.gif)
